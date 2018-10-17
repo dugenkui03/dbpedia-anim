@@ -28,7 +28,7 @@ import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.util.FileManager;
 
 /**
- * 鏈�绠�娲佺殑瀹炵幇
+ * 最简洁的实现
  */
 public class ExampleARQ_03 {
 

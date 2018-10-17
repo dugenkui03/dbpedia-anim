@@ -1,7 +1,7 @@
 //package bjut.plot;
 //
 ///**
-// * @author ζθ‰®ι­
+// * @author ¶ΕτήΏύ
 // * @date 2018/9/19
 // */
 //public class DbpediaPlot {

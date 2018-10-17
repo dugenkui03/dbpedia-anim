@@ -1,50 +1,50 @@
 package cons;
 
 /**
- * @author æœè‰®é­
+ * @author ¶ÅôŞ¿ı
  * @date 2018/10/10
  */
 public class Constants {
     /**
-     * DBPediaåœ¨æœ¬åœ°çš„ä½ç½®
+     * DBPediaÔÚ±¾µØµÄÎ»ÖÃ
      */
     public static final String LOD_TDB_DIR = "E:\\TDB\\DBpedia\\";
     /**
-     * åŠ¨ç”»çŸ¥è¯†åº“çš„ä½ç½®
+     * ¶¯»­ÖªÊ¶¿âµÄÎ»ÖÃ
      */
     public static final String ANIM_KB_DIR = "E:\\TDB\\KBTDB\\";
     /**
-     * åŠ¨ç”»çŸ¥è¯†åº“owlæ–‡ä»¶ä½ç½®
+     * ¶¯»­ÖªÊ¶¿âowlÎÄ¼şÎ»ÖÃ
      */
     public static final String ANIM_OWL_PATH="dbpedia_2014.owl";
     /**
-     * å…³è”åº“åœ¨æœ¬åœ°ä½ç½®
+     * ¹ØÁª¿âÔÚ±¾µØÎ»ÖÃ
      */
     public static final String REL_KB_DIR = "E:\\TDB\\RELTDB\\";
 
-    /*=====================================================ä¸€èˆ¬QUERYé€šç”¨å†™æ³•========================================================*/
+    /*=====================================================Ò»°ãQUERYÍ¨ÓÃĞ´·¨========================================================*/
     /**
-     * æŸ¥è¯¢è¯­å¥ä¸­å‚æ•°çš„å­—ç¬¦ä¸²è¡¨ç¤ºï¼Œåªè¦ä¸æ˜¯æŸ¥è¯¢å…³é”®å­—æˆ–è€…å…¶ä»–queryä¸­ç”¨åˆ°çš„å°±è¡Œ.fixme æŸ¥è¯¢è¯­å¥åº”è¯¥è·Ÿè¿™ä¸ªå¯¹é½
+     * ²éÑ¯Óï¾äÖĞ²ÎÊıµÄ×Ö·û´®±íÊ¾£¬Ö»Òª²»ÊÇ²éÑ¯¹Ø¼ü×Ö»òÕßÆäËûqueryÖĞÓÃµ½µÄ¾ÍĞĞ.fixme ²éÑ¯Óï¾äÓ¦¸Ã¸úÕâ¸ö¶ÔÆë
      */
     public static final String QUERY_PARAM = "param";
 
     /**
-     * æŸ¥è¯¢é”çš„ä¸‰å…ƒç»„ä¸‰ä¸ªä½ç½®çš„å‘½å. fixme æŸ¥è¯¢è¯­å¥åº”è¯¥è·Ÿè¿™ä¸ªå¯¹é½
+     * ²éÑ¯ËøµÄÈıÔª×éÈı¸öÎ»ÖÃµÄÃüÃû. fixme ²éÑ¯Óï¾äÓ¦¸Ã¸úÕâ¸ö¶ÔÆë
      */
     public static final String HEAD = "object", LABEL = "pred", TAIL = "val";
 
     public static final String TERM_TYPE_DESC="http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
 
     /**
-     * ä¸¤ç§æŸ¥è¯¢ç±»å‹ï¼Œåˆ†åˆ«å°†å‚æ•°ä½œä¸ºheadå’Œtailã€‚
-     * fixme æŸ¥è¯¢æ—¶ä½¿ç”¨QUERY_PARAå‚æ•°æ›¿ä»£,è·å–ç»“æœå¦‚æœæ˜¯ä¸‰å…ƒç»„åˆ™ä½¿ç”¨HEADã€LABELå’ŒTAIL
+     * Á½ÖÖ²éÑ¯ÀàĞÍ£¬·Ö±ğ½«²ÎÊı×÷ÎªheadºÍtail¡£
+     * fixme ²éÑ¯Ê±Ê¹ÓÃQUERY_PARA²ÎÊıÌæ´ú,»ñÈ¡½á¹ûÈç¹ûÊÇÈıÔª×éÔòÊ¹ÓÃHEAD¡¢LABELºÍTAIL
      */
     public static final String QUERY_HEAD = "select * where{<param> ?pred ?val}";
 
     public static final String QUERY_TAIL = "select * where{?object ?pred <param>}";
 
     /**
-     * æŸ¥è¯¢termçš„ç±»å‹ å’Œ ç±»å‹ä¸ºtermçš„æ•°æ®
+     * ²éÑ¯termµÄÀàĞÍ ºÍ ÀàĞÍÎªtermµÄÊı¾İ
      */
     public static final String QUERY_TERM_CLASS = "select * where{ <param> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?val }";
 

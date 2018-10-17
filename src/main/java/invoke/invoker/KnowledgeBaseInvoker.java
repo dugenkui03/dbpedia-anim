@@ -20,7 +20,7 @@ import java.util.concurrent.Future;
 import static cons.Constants.*;
 
 /**
- * @author æœè‰®é­
+ * @author ¶ÅôŞ¿ı
  * @date 2018/10/10
  */
 @Data
@@ -38,7 +38,7 @@ public class KnowledgeBaseInvoker {
     }
 
     /**
-     * æŸ¥æ‰¾æ¯ä¸ªtermçš„å±æ€§é›†åˆ
+     * ²éÕÒÃ¿¸ötermµÄÊôĞÔ¼¯ºÏ
      */
     @Deprecated
     public static List<TermInfo> termListInfo(List<String> termsParam, String queryType) throws ExecutionException, InterruptedException {
@@ -61,7 +61,7 @@ public class KnowledgeBaseInvoker {
     }
 
     /**
-     * æŸ¥æ‰¾ä»¥termä¸ºheadçš„ä¸‰å…ƒç»„
+     * ²éÕÒÒÔtermÎªheadµÄÈıÔª×é
      */
     @Deprecated
     public static Map<String, String> termLabelTail(String term) {
@@ -90,23 +90,23 @@ public class KnowledgeBaseInvoker {
     }
 
     /**
-     * æŸ¥æ‰¾ä»¥termä¸ºheadçš„ä¸‰å…ƒç»„(head,l,b)
+     * ²éÕÒÒÔtermÎªheadµÄÈıÔª×é(head,l,b)
      */
     public List<Triple> hlt(String qrySchema, String param) {
         List<Triple> resTriple = new LinkedList<>();
         /**
-         * æ‰“å¼€æ•°æ®èµ„æº
+         * ´ò¿ªÊı¾İ×ÊÔ´
          */
         FileManager.get().addLocatorClassLoader(KnowledgeBaseInvoker.class.getClassLoader());
         Model model = FileManager.get().loadModel(getLocalDir());
         /**
-         * æ„é€ æŸ¥è¯¢
+         * ¹¹Ôì²éÑ¯
          */
         String queryStr = qrySchema.replace(QUERY_PARAM, param);
         Query query = QueryFactory.create(queryStr);
         QueryExecution execution = QueryExecutionFactory.create(query, model);
         /**
-         * æ‰§è¡ŒæŸ¥è¯¢å¹¶è·å–ç»“æœ
+         * Ö´ĞĞ²éÑ¯²¢»ñÈ¡½á¹û
          */
         try {
             ResultSet results = execution.execSelect();
@@ -139,7 +139,7 @@ public class KnowledgeBaseInvoker {
     }
 
     /**
-     * é€šè¿‡ç½‘ç»œæŸ¥æ‰¾ä»¥termä¸ºheadçš„ä¸‰å…ƒç»„(head,l,b)
+     * Í¨¹ıÍøÂç²éÕÒÒÔtermÎªheadµÄÈıÔª×é(head,l,b)
      */
     public static List<Triple> hltNet(String qrySchema, String param) {
         List<Triple> resTriple = new LinkedList<>();

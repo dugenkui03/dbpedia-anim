@@ -8,7 +8,7 @@ import org.apache.jena.util.FileManager;
 import java.io.*;
 
 /**
- * @author æœè‰®é­
+ * @author ¶ÅôŞ¿ı
  * @date 2018/10/13
  */
 public class QueryTest {
