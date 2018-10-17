@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+  <message value="飞机不见了"/>
+  <nemessage value=" 飞机不见了"/>
+  <segmessage value="飞机#nn 不见#vb 了#ax"/>
+  <topic name="" key="">
+     <root name="动作" flag="" value="走:去|日常动作吃:吃饭" color="" /> 
+  <root name="人物" flag="" value="复数人物:第一人称复数:我们" color="" /> </topic>
+  <topic name="惊" flag="1" probability="0.8769231"/>
+  <textType attribute="subjective">
+    <happy attribute="0.1999336390530517"/>
+    <angry attribute="0.3598301785938887"/>
+    <sad attribute="0.19656838927196568"/>
+    <fear attribute="0.12060317230155325"/>
+  </textType>
+</result>

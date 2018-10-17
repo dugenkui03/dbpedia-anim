@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+  <message value="到夏天，天气变得越来越热了，"/>
+  <nemessage value=" 到夏天，天气变得越来越热了，"/>
+  <segmessage value="到#pp 夏天#na ，#wp 天气#nn 变得#vb 越来越#ad 热#aj 了#ax ，#wp"/>
+  <topic name="" key="">
+    <root name="时间" flag="" value="夏天:夏天:夏天" color=""/>
+    <root name="天气" flag="" value="晴天:晴天:热" color=""/>
+  </topic>
+</result>

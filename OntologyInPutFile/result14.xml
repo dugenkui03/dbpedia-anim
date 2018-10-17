@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+  <topic name="生日" key="生日快乐;生日蛋糕">
+    <root name="地点" flag="" value="饭店:生日蛋糕"/>
+    <root name="人物" flag="" value="单数人物:你"/>
+    <root name="情绪" flag="" value="喜悦:你快乐"/>
+  </topic>
+  <topic name="隐含节日" key="祝你">
+    <root name="人物" flag="" value="单数人物:你"/>
+    <root name="情绪" flag="" value="关怀:体贴关怀|喜悦:甜蜜温馨"/>
+  </topic>
+</result>

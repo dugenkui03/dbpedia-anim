@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+  <message value="我这就骑车去找你，"/>
+  <nemessage value=" 我这就骑车去找你，"/>
+  <segmessage value="我#pn 这#pn 就#ad 骑车#vb 去#vb 找#vb 你#pn ，#wp"/>
+  <topic name="骑车" key="骑车">
+    <root name="动作" flag="" value="走:去;找" color=""/>
+    <root name="人物" flag="" value="单数人物:第一人称单数:我|单数人物:第二人称单数:你" color=""/>
+  </topic>
+</result>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+<message value="今天晚上有舞会，咱们一块去跳舞吧"/>
+  <nemessage value=" 今天晚上有舞会，咱们一块去跳舞吧"/>
+  <segmessage value="今天#na 晚上#na 有#vb 舞会#nn ，#wp 咱们#pn 一块#ad 去#vb 跳舞#vb 吧#ax"/>
+  <topic name="跳舞" key="跳舞">
+    <root name="人物" flag="" value="复数人物:第一人称复数:咱们"/>
+  </topic>
+</result>

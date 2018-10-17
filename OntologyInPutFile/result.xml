@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+  <message value="我赞成你的说法"/>
+  <nemessage value=" 我赞成你的说法"/>
+  <segmessage value="我#pn 赞成#vb 你#pn 的#ax 说法#nn"/>
+  <topic name="" key="">
+    <root name="人物" flag="" value="单数人物:第一人称单数:我|单数人物:第二人称单数:你" color="" negFlag="0" negCont="" neg=""/>
+  </topic>
+  <topic name="" flag="1" probability="0.0"/>
+  <textType attribute="objective"/>
+</result>

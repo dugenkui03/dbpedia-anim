@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+  <message value="今天天气变化真大，上午晴天，下午就下起了大雨"/>
+  <nemessage value=" 今天天气变化真大，上午晴天，下午就下起了大雨"/>
+  <segmessage value="今天#na 天气#nn 变化#vb 真#ad 大#aj ，#wp 上午#na 晴天#nn ，#wp 下午#na 就#ad 下#vb 起#vb 了#ax 大雨#nn"/>
+  <topic name="" key="">
+    <root name="时间" flag="" value="某日:今天上午下午" color=""/>
+    <root name="天气" flag="" value="晴天:晴天:晴天|雨:中雨:大雨|雨:大雨:大雨" color=""/>
+  </topic>
+</result>

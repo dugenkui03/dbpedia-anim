@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<result negType="" negCont="">
+  <message value="骑着马儿跑真好，"/>
+  <nemessage value=" 骑着马儿跑真好，"/>
+  <segmessage value="骑#vb 着#ax 马儿#nn 跑#vb 真#ad 好#aj ，#wp"/>
+  <topic name="跑步" key="跑"/>
+</result>
