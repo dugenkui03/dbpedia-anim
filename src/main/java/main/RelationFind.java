@@ -2,6 +2,7 @@ package main;
 
 import cons.Constants;
 import cons.Triple;
+import engine.Similarity;
 import invoke.RelationTerm;
 import invoke.invoker.KnowledgeBaseInvoker;
 import util.LookUpUtil;
@@ -96,6 +97,7 @@ public class RelationFind {
          * termsDesc和terms2InstancesList比较，从后者选择出最相似的实例
          */
 
+        Map<String,String> map = Similarity.findSimInstances(termsDesc,terms2InstancesList);
 
         /**
          * 获取term关联的term的类型
