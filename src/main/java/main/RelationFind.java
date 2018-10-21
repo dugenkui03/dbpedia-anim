@@ -80,6 +80,8 @@ public class RelationFind {
          */
         Map<String,Set<String>> terms2InstancesList = new HashMap<>();
         KnowledgeBaseInvoker kbi = KnowledgeBaseInvoker.newInvokerBuilder().localDir(Constants.ANIM_OWL_PATH).build();
+
+
         for (Map.Entry<String,Set<String>> termTypes : termsTypeList.entrySet()) {
             Set<String> sameTypesInstanceList = new HashSet<>();
             //一个term可以有很多个类型，sameTypesInstanceList即与某个term所有type之一类型相同的实例集合
@@ -93,36 +95,56 @@ public class RelationFind {
             terms2InstancesList.put(termTypes.getKey(),sameTypesInstanceList);
         }
         /**
-         * todo 获取本地实例描述，然后比较相似程度选择 单词term 对应的term
+         * fixme 获取本地实例描述，然后比较相似程度选择 单词term 对应的term
          * termsDesc和terms2InstancesList比较，从后者选择出最相似的实例
          */
+        Map<String,String> term2Instance = Similarity.findSimInstances(termsDesc,terms2InstancesList);
 
-        Map<String,String> map = Similarity.findSimInstances(termsDesc,terms2InstancesList);
 
         /**
-         * 获取term关联的term的类型
+         * fixme: 关联数据查询
+         *       1.查找term关联的connectedTerm的类型 和 他们的信息；
+         *       2.查找跟connnectedTerm类型相同的本地知识库的实体，找出最相似的实体
+         * TODO：category 属性有很大的参考意义
          */
-        Set<String> relType = RelationTerm.findTypeOfConnectedTermList(terms);
-        /**
-         * 查找本地知识库中同种类型的term todo:改善：多次查询打开一次数据库：静态代码块和静态方法
-         */
-        List<String> sameTypeRelAnimTermList = new LinkedList<>();
-        for (String type : relType) {
-            List<Triple> locakInstance = kbi.hlt(Constants.QUERY_BY_CLASS, type);
-            for (Triple triple : locakInstance) {
-                String animTermType = triple.getH().toString();
-                sameTypeRelAnimTermList.add(animTermType);
+        Set<String> connectedTerm = RelationTerm.findConnectedTermList(terms);
+        Map<String,Set<String>> connectedTermsTypeList = new HashMap<>();
+        Map<String,List<Triple>> connectedTermsDesc = new HashMap<>();
+        for (String term : connectedTerm) {
+            //查询term的类型，然后获取其类型信息
+            Set<String> termsType = new LinkedHashSet<>();
+            List<Triple> classTrips = KnowledgeBaseInvoker.hltNet(Constants.QUERY_TERM_CLASS, term);
+            for (Triple triple : classTrips) {
+                termsType.add((String) triple.getT());
             }
+            connectedTermsTypeList.put(term,termsType);
+            //查询term的信息
+            List<Triple> infoTriple = KnowledgeBaseInvoker.hltNet(Constants.QUERY_HEAD, term);
+            connectedTermsDesc.put(term,infoTriple);
         }
-
-        for (String ele : sameTypeRelAnimTermList) {
-            System.out.println(ele);
-        }
-
         /**
-         * todo 求相似度最高的本地模型
+         * 查找本地和term有相同类型的实例
          */
+        Map<String,Set<String>> connectedTerms2InstancesList = new HashMap<>();
+        for (Map.Entry<String,Set<String>> termTypes : termsTypeList.entrySet()) {
+            Set<String> sameTypesInstanceList = new HashSet<>();
+            //一个term可以有很多个类型，sameTypesInstanceList即与某个term所有type之一类型相同的实例集合
+            for (String type:termTypes.getValue()) {
+                List<Triple> locakInstance = kbi.hlt(Constants.QUERY_BY_CLASS, type);
+                for (Triple triple : locakInstance) {
+                    String animTermType = triple.getH().toString();
+                    sameTypesInstanceList.add(animTermType);
+                }
+            }
+            connectedTerms2InstancesList.put(termTypes.getKey(),sameTypesInstanceList);
+        }
+        /**
+         * fixme 获取本地实例描述，然后比较相似程度选择 单词term 对应的term
+         * termsDesc和terms2InstancesList比较，从后者选择出最相似的实例
+         */
+        Map<String,String> connectedTerm2Instance = Similarity.findSimInstances(connectedTermsDesc,connectedTerms2InstancesList);
+        term2Instance.putAll(connectedTerm2Instance);
 
-        return null;
+        return term2Instance;
     }
 }
