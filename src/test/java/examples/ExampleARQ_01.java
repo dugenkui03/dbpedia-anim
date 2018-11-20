@@ -34,7 +34,7 @@ public class ExampleARQ_01 {
         FileManager.get().addLocatorClassLoader(ExampleARQ_01.class.getClassLoader());
         Model model = FileManager.get().loadModel("data/data.ttl");
 
-        String queryString = 
+        String queryString =
                 "PREFIX foaf: <http://xmlns.com/foaf/0.1/> " +
         		"SELECT ?name WHERE { " +
         		"    ?person foaf:mbox <mailto:alice@example.org> . " +
