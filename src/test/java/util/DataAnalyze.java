@@ -17,7 +17,7 @@ public class DataAnalyze {
 
     static {
         try {
-            owlModel = ProtegeOWL.createJenaOWLModelFromURI("file:///c:/ontologyOWL/AllOwlFile/sumoOWL2/sumo_phone3.owl");
+            owlModel = ProtegeOWL.createJenaOWLModelFromURI("file:///c:/ontologyOWL/dbpediaschema/dbpedia_2014.owl");
         } catch (OntologyLoadException e) {
             e.printStackTrace();
         }
