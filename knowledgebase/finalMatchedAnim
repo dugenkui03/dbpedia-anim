@@ -173,7 +173,7 @@ DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Spo
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Class);class;animClz2Entity;<http://dbpedia.org/resource/Class>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1411135280.owl#PinkC);pinkc;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Pink>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Snake);snake;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Hydra>
-DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Human);human;animClz2Entity;<http://dbpedia.org/resource/Human>
+DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Human);human;thesuaru_syno;<http://dbpedia.org/ontology/Person>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Apple);apple;animClz2Entity;<http://dbpedia.org/resource/Apple>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#March);march;animClz2Entity;<http://dbpedia.org/resource/March>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Cloud);cloud;wordNet_syno;<http://dbpedia.org/ontology/Swarm>
