@@ -130,6 +130,24 @@ public class OMUtils {
         }
     }
 
+    /**
+     * 将animModel对象中animClz类下的子孙类“平移”到dbpediaModel对象中的dbpediaClz类下，即dbpediaClz和animClz是等价类
+     */
+    public static void setDescClzX(OWLModel dbpediaModel, RDFSNamedClass dbpediaClz, OWLNamedClass animClz) {
+        Collection<OWLNamedClass> animSubClzList = animClz.getSubclasses(false);
+
+        for(OWLNamedClass subClz:animSubClzList){
+            OWLNamedClass newDBpediaClz;
+            if((newDBpediaClz=dbpediaModel.getOWLNamedClass(subClz.getName()))==null){
+                newDBpediaClz=dbpediaModel.createOWLNamedClass(subClz.getName());
+            }
+            newDBpediaClz.addSuperclass(dbpediaClz);
+            newDBpediaClz.removeSuperclass(dbpediaModel.getOWLNamedClass("owl:Thing"));
+
+            setDescClzX(dbpediaModel,newDBpediaClz,subClz);
+        }
+    }
+
 
     public static void printClassNameInfo(DefaultRDFSNamedClass clz) {
         System.out.println(clz.getName() + "\t number of all subClasses:" + clz.getSubclasses(true).size());

@@ -97,18 +97,19 @@ public class OMHandler {
                         equalClzCount++;
                         OWLNamedClass dbpediaClz = dbpediaOwlModel.getOWLNamedClass(anim2DBpediaClzUri);
 
-                        //获取动画类的子类
-                        Collection<OWLNamedClass> animSubClassList = animOwlModel.getOWLNamedClass(animUri).getSubclasses(false);
-                        //在DBpedia中创建动画类子类，并且指定动画类对应的DBpedia类为父类
-                        for (OWLNamedClass subAnimClz : animSubClassList) {
-                            subClzCount++;
-                            OWLNamedClass animClz2DBpediaClz;
-                            if((animClz2DBpediaClz=dbpediaOwlModel.getOWLNamedClass(subAnimClz.getName()))==null){
-                                animClz2DBpediaClz=dbpediaOwlModel.createOWLNamedClass(subAnimClz.getName());
-                            }
-                            animClz2DBpediaClz.addSuperclass(dbpediaClz);
-                            animClz2DBpediaClz.removeSuperclass(dbpediaOwlModel.getOWLNamedClass("owl:Thing"));
-                        }
+//                        //获取动画类的子类
+//                        Collection<OWLNamedClass> animSubClassList = animOwlModel.getOWLNamedClass(animUri).getSubclasses(false);
+//                        //在DBpedia中创建动画类子类，并且指定动画类对应的DBpedia类为父类
+//                        for (OWLNamedClass subAnimClz : animSubClassList) {
+//                            subClzCount++;
+//                            OWLNamedClass animClz2DBpediaClz;
+//                            if((animClz2DBpediaClz=dbpediaOwlModel.getOWLNamedClass(subAnimClz.getName()))==null){
+//                                animClz2DBpediaClz=dbpediaOwlModel.createOWLNamedClass(subAnimClz.getName());
+//                            }
+//                            animClz2DBpediaClz.addSuperclass(dbpediaClz);
+//                            animClz2DBpediaClz.removeSuperclass(dbpediaOwlModel.getOWLNamedClass("owl:Thing"));
+//                        }
+                        OMUtils.setDescClz(dbpediaOwlModel,dbpediaClz,animOwlModel.getOWLNamedClass(animUri));
 
                         //指定等价关系 todo 必须先指定子类，然后指定等价关系，否则出错
                         RDFProperty equivalentClassProp = dbpediaOwlModel.getRDFProperty("http://www.w3.org/2002/07/owl#equivalentClass");
@@ -118,18 +119,19 @@ public class OMHandler {
                         equalClzCount++;
                         RDFSNamedClass dbpediaClz = dbpediaOwlModel.getRDFSNamedClass(anim2DBpediaClzUri);
 
-                        //获取动画类的子类
-                        Collection<OWLNamedClass> animSubClassList = animOwlModel.getOWLNamedClass(animUri).getSubclasses(false);
-                        //在DBpedia中创建动画类子类，并且指定动画类对应的DBpedia类为父类
-                        for (OWLNamedClass subAnimClz : animSubClassList) {
-                            equalClzCount++;
-                            OWLNamedClass animClz2DBpediaClz;
-                            if((animClz2DBpediaClz=dbpediaOwlModel.getOWLNamedClass(subAnimClz.getName()))==null){
-                                animClz2DBpediaClz=dbpediaOwlModel.createOWLNamedClass(subAnimClz.getName());
-                            }
-                            animClz2DBpediaClz.addSuperclass(dbpediaClz);
-                            animClz2DBpediaClz.removeSuperclass(dbpediaOwlModel.getOWLNamedClass("owl:Thing"));
-                        }
+//                        //获取动画类的子类
+//                        Collection<OWLNamedClass> animSubClassList = animOwlModel.getOWLNamedClass(animUri).getSubclasses(false);
+//                        //在DBpedia中创建动画类子类，并且指定动画类对应的DBpedia类为父类
+//                        for (OWLNamedClass subAnimClz : animSubClassList) {
+//                            equalClzCount++;
+//                            OWLNamedClass animClz2DBpediaClz;
+//                            if((animClz2DBpediaClz=dbpediaOwlModel.getOWLNamedClass(subAnimClz.getName()))==null){
+//                                animClz2DBpediaClz=dbpediaOwlModel.createOWLNamedClass(subAnimClz.getName());
+//                            }
+//                            animClz2DBpediaClz.addSuperclass(dbpediaClz);
+//                            animClz2DBpediaClz.removeSuperclass(dbpediaOwlModel.getOWLNamedClass("owl:Thing"));
+//                        }
+                        OMUtils.setDescClzX(dbpediaOwlModel,dbpediaClz,animOwlModel.getOWLNamedClass(animUri));
 
                         //指定等价关系 todo 必须先指定子类，然后指定等价关系，否则出错
                         RDFProperty equivalentClassProp = dbpediaOwlModel.getRDFProperty("http://www.w3.org/2002/07/owl#equivalentClass");
