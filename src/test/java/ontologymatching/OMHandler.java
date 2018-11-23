@@ -9,6 +9,7 @@ import edu.stanford.smi.protegex.owl.model.impl.DefaultRDFSNamedClass;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -71,15 +72,19 @@ public class OMHandler {
              * 如果此动画的term已经被匹配上DBpedia类或者DBpedia的实体
              */
             if (eleArr.length > 2) {
+                String animUri = eleArr[0].substring(21, eleArr[0].length() - 1);
+                String anim2DBpediaClzUri = null;
+                try {
+                    anim2DBpediaClzUri = eleArr[3].substring(1, eleArr[3].length() - 1);
+                } catch (Exception e) {
+                    System.out.println("final"+ Arrays.asList(eleArr));
+                }
                 /**
                  * 如果是类对类，则：
                  *      1. 在DBpedia库中创建此动画类；
                  *      2.然后指定他们的等价关系。
                  */
                 if (Constants.ANIMCLZ_EQUAL_DBPEDIACLZ.contains(eleArr[2])) {
-                    String animUri = eleArr[0].substring(21, eleArr[0].length() - 1);
-                    String anim2DBpediaClzUri = eleArr[3].substring(1, eleArr[3].length() - 1);
-
                     //在DBpedia schema中创建动画类
                     OWLNamedClass animClz;
                     if((animClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
@@ -139,10 +144,17 @@ public class OMHandler {
                     }
                 }
                 /**
-                 * 如果是动画类对DBpedia实体，使用
+                 * 如果是动画类对DBpedia实体，则：
+                 *      1. 先在DBpedia-schema中创建对应的动画类；
+                 *      2. 创建其实例，即对应的DBpedia实体;
+                 *      todo 3. 此动画类下边的子类和实例是否用拷贝过来。
                  */
                 else if (Constants.ANIMCLZ_EQUAL_DBPEDIAINS.contains(eleArr[2])) {
-
+                    OWLNamedClass dbpediaClz;
+                    if((dbpediaClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
+                        dbpediaClz=dbpediaOwlModel.createOWLNamedClass(animUri);
+                    }
+                    dbpediaClz.createOWLIndividual(anim2DBpediaClzUri);
                 }
             }
         }

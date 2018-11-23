@@ -6,7 +6,7 @@ DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Egg
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Cap);cap;wordNet_syno;<http://dbpedia.org/ontology/Capital>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Set);set;wordNet_syno;<http://schema.org/Place>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Day);day;equal;<http://dbpedia.org/datatype/day>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Cup);animClz2Entity;<http://dbpedia.org/resource/Cup>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Cup);cup;animClz2Entity;<http://dbpedia.org/resource/Cup>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Cup);cup;animClz2Entity;<http://dbpedia.org/resource/Cup>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#May);may;animClz2Entity;<http://dbpedia.org/resource/May>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Man);man;animClz2Entity;<http://dbpedia.org/resource/Man>
