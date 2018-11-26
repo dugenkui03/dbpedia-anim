@@ -74,11 +74,16 @@ public class OMHandler {
             if (eleArr.length > 2) {
                 String animUri = eleArr[0].substring(21, eleArr[0].length() - 1);
                 String anim2DBpediaClzUri = null;
-                try {
+                if(eleArr.length==3){
+                    anim2DBpediaClzUri = eleArr[2].substring(1, eleArr[2].length() - 1);
+                }else{
                     anim2DBpediaClzUri = eleArr[3].substring(1, eleArr[3].length() - 1);
-                } catch (Exception e) {
-                    System.out.println("final"+ Arrays.asList(eleArr));
                 }
+//                try {
+//                    anim2DBpediaClzUri = eleArr[3].substring(1, eleArr[3].length() - 1);
+//                } catch (Exception e) {
+//                    System.out.println("final"+ Arrays.asList(eleArr));
+//                }
                 /**
                  * 如果是类对类，则：
                  *      1. 在DBpedia库中创建此动画类；
@@ -150,11 +155,11 @@ public class OMHandler {
                  *      todo 3. 此动画类下边的子类和实例是否用拷贝过来。
                  */
                 else if (Constants.ANIMCLZ_EQUAL_DBPEDIAINS.contains(eleArr[2])) {
-                    OWLNamedClass dbpediaClz;
-                    if((dbpediaClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
-                        dbpediaClz=dbpediaOwlModel.createOWLNamedClass(animUri);
-                    }
-                    dbpediaClz.createOWLIndividual(anim2DBpediaClzUri);
+//                    OWLNamedClass dbpediaClz;
+//                    if((dbpediaClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
+//                        dbpediaClz=dbpediaOwlModel.createOWLNamedClass(animUri);
+//                    }
+//                    dbpediaClz.createOWLIndividual(anim2DBpediaClzUri);
                 }
             }
         }

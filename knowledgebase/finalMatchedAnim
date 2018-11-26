@@ -74,7 +74,7 @@ DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Fis
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Rose);rose;animClz2Entity;<http://dbpedia.org/resource/Rose>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/MyCamera.owl#Back);back;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Rear>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Hair);hair;animClz2Entity;<http://dbpedia.org/resource/Hair>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1411135280.owl#Rain);animClz2Entity;<http://dbpedia.org/resource/Rain>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1411135280.owl#Rain);rain;animClz2Entity;<http://dbpedia.org/resource/Rain>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1411135280.owl#Snow);snow;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Coke>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#wave);wave;animClz2Entity;<http://dbpedia.org/resource/Wave>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1411135280.owl#Wind);wind;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Tip>
@@ -98,10 +98,10 @@ DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Ico
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Plan);plan;animClz2Entity;<http://dbpedia.org/resource/Plan>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Bird);bird;equal;<http://dbpedia.org/ontology/Bird>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Fern);fern;equal;<http://dbpedia.org/ontology/Fern>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#empty);animClz2Entity;<http://dbpedia.org/resource/Empty>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#empty);empty;animClz2Entity;<http://dbpedia.org/resource/Empty>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Shoes);shoes;wordNet_syno;<http://schema.org/Place>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#flare);flare;animClz2Entity;<http://dbpedia.org/resource/Flare>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Beach);animClz2Entity;<http://dbpedia.org/resource/Beach>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Beach);beach;animClz2Entity;<http://dbpedia.org/resource/Beach>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Cloud);cloud;wordNet_syno;<http://dbpedia.org/ontology/Swarm>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Death);death;equal;<http://dbpedia.org/ontology/Death>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Plant);plant;equal;<http://dbpedia.org/ontology/Plant>
@@ -125,7 +125,7 @@ DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Qua
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1448934359.owl#Event);event;equal;<http://dbpedia.org/ontology/Event>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1357699817.owl#Round);round;animClz2Entity;<http://dbpedia.org/resource/Round>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Light);light;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Idle>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Clock);animClz2Entity;<http://dbpedia.org/resource/Clock>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Clock);clock;animClz2Entity;<http://dbpedia.org/resource/Clock>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Train);train;equal;<http://dbpedia.org/ontology/Train>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Birth);birth;equal;<http://dbpedia.org/ontology/Birth>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Shoes);shoes;wordNet_syno;<http://schema.org/Place>
@@ -141,7 +141,7 @@ DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Tulip)
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Dress);dress;animClz2Entity;<http://dbpedia.org/resource/Dress>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#InAir);inair
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Woman);woman;animClz2Entity;<http://dbpedia.org/resource/Woman>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Shark);animClz2Entity;<http://dbpedia.org/resource/Shark>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Shark);shark;animClz2Entity;<http://dbpedia.org/resource/Shark>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Grape);grape;equal;<http://dbpedia.org/ontology/Grape>;thesuaru_syno;<http://dbpedia.org/ontology/Wine>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Spore);spore;animClz2Entity;<http://dbpedia.org/resource/Spore>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Shape);shape;animClz2Entity;<http://dbpedia.org/resource/Shape>
@@ -741,7 +741,7 @@ DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Eur
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#HorseScene);horse;animClz2Entity;<http://dbpedia.org/resource/Horse>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1496659417.owl#RestAction);restaction;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Redaction>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306283939.owl#FacialPity);facialpity;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Facial>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Basketball);animClz2Entity;<http://dbpedia.org/resource/Basketball>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Basketball);basketball;animClz2Entity;<http://dbpedia.org/resource/Basketball>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306283939.owl#BallAction);ballaction;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Allocation>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#food_shape);foodshape;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Good>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#ColorTrust);colortrust
