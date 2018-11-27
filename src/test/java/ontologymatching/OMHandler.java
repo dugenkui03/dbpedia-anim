@@ -1,9 +1,6 @@
 package ontologymatching;
 
-import edu.stanford.smi.protegex.owl.model.OWLModel;
-import edu.stanford.smi.protegex.owl.model.OWLNamedClass;
-import edu.stanford.smi.protegex.owl.model.RDFProperty;
-import edu.stanford.smi.protegex.owl.model.RDFSNamedClass;
+import edu.stanford.smi.protegex.owl.model.*;
 import edu.stanford.smi.protegex.owl.model.impl.DefaultRDFSNamedClass;
 
 import java.io.BufferedReader;
@@ -24,6 +21,8 @@ public class OMHandler {
     public static int equalClzCount=0;
 
     public static int subClzCount=0;
+
+    public static int clz2Entity=0;
 
     public static void main(String[] args) {
         /**
@@ -90,22 +89,26 @@ public class OMHandler {
                  *      2.然后指定他们的等价关系。
                  */
                 if (Constants.ANIMCLZ_EQUAL_DBPEDIACLZ.contains(eleArr[2])) {
-                    //在DBpedia schema中创建动画类
-                    OWLNamedClass animClz;
-                    if((animClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
-                        animClz=dbpediaOwlModel.createOWLNamedClass(animUri);
-                    }
-
                     /**
                      * 指定等价关系并且将动画类的子类在DBpedia类中创建并且设置为其子类 todo 匹配有误差的数据，数据类型不能用来进行匹配
                      */
                     if (anim2DBpediaClzUri.contains("http://dbpedia.org/datatype")) {
                         continue;
                     }
+
+                    //在DBpedia schema中创建动画类
+                    OWLNamedClass animClz;
+                    if((animClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
+                        animClz=dbpediaOwlModel.createOWLNamedClass(animUri);
+                    }
+
                     //fixme 不同的uri对应不同的XXNamedClass，所以有if-else判断
                     if (anim2DBpediaClzUri.contains("http://dbpedia.org")) {
                         equalClzCount++;
                         OWLNamedClass dbpediaClz = dbpediaOwlModel.getOWLNamedClass(anim2DBpediaClzUri);
+
+                        //todo 将anim2DBpediaClzUri 的实例挂到两个类下边
+
 
 //                        //获取动画类的子类
 //                        Collection<OWLNamedClass> animSubClassList = animOwlModel.getOWLNamedClass(animUri).getSubclasses(false);
@@ -155,15 +158,22 @@ public class OMHandler {
                  *      todo 3. 此动画类下边的子类和实例是否用拷贝过来。
                  */
                 else if (Constants.ANIMCLZ_EQUAL_DBPEDIAINS.contains(eleArr[2])) {
-//                    OWLNamedClass dbpediaClz;
-//                    if((dbpediaClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
-//                        dbpediaClz=dbpediaOwlModel.createOWLNamedClass(animUri);
-//                    }
-//                    dbpediaClz.createOWLIndividual(anim2DBpediaClzUri);
+                    clz2Entity++;
+                    OWLNamedClass dbpediaClz;
+                    if((dbpediaClz=dbpediaOwlModel.getOWLNamedClass(animUri))==null){
+                        dbpediaClz=dbpediaOwlModel.createOWLNamedClass(animUri);
+                    }
+                    OWLIndividual newIndividual;
+                    if((newIndividual=dbpediaOwlModel.getOWLIndividual(anim2DBpediaClzUri))==null){
+                        dbpediaClz.createOWLIndividual(anim2DBpediaClzUri);
+                    }else{
+                        newIndividual.addRDFType(dbpediaClz);
+                        System.out.println(anim2DBpediaClzUri+"重复");
+                    }
                 }
             }
         }
         OMUtils.saveOwlModel2File(dbpediaOwlModel);
-        System.out.println(equalClzCount+":"+subClzCount);
+        System.out.println(equalClzCount+":"+subClzCount+":"+clz2Entity);
     }
 }
