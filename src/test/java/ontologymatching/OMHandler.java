@@ -6,10 +6,7 @@ import edu.stanford.smi.protegex.owl.model.impl.DefaultRDFSNamedClass;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * todo 1. 统计新添加的数据;2.将动画知识库的实例挂在DBpedia-schema中；3.设置子类关系的时候需要递归设置子孙类关系
@@ -23,6 +20,8 @@ public class OMHandler {
     public static int subClzCount=0;
 
     public static int clz2Entity=0;
+
+    public static int limitNum=0;
 
     public static void main(String[] args) {
         /**
@@ -40,10 +39,10 @@ public class OMHandler {
         /**
          * 打印所有类的信息
          */
-        for (DefaultRDFSNamedClass clz : allClz) {
+//        for (DefaultRDFSNamedClass clz : allClz) {
 //            System.out.println(clz.getName());
 //            System.out.println(clz.getPrefixedName()+"\n");
-        }
+//        }
 
         /**
          * 获取匹配数据放进List<String[]>中
@@ -57,6 +56,22 @@ public class OMHandler {
                 lineInfo.add(line.split(";"));
             }
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        /**
+         * 获取已经匹配的DBpedia类及其DBpedia数据集中的实例（1w）
+         */
+        Map<String,String> clzEntitiesMap=new HashMap();
+        try{
+            File file=new File("knowledgebase/clzEntities");
+            BufferedReader bf=new BufferedReader(new FileReader(file));
+            String line="";
+            while((line=bf.readLine())!=null){
+                clzEntitiesMap.put(line,bf.readLine());
+            }
+        }catch (Exception e){
+            System.out.println("can't open file:knowledgebase/clzEntities");
             e.printStackTrace();
         }
 
@@ -78,11 +93,9 @@ public class OMHandler {
                 }else{
                     anim2DBpediaClzUri = eleArr[3].substring(1, eleArr[3].length() - 1);
                 }
-//                try {
-//                    anim2DBpediaClzUri = eleArr[3].substring(1, eleArr[3].length() - 1);
-//                } catch (Exception e) {
-//                    System.out.println("final"+ Arrays.asList(eleArr));
-//                }
+
+                System.out.println("animUri:"+animUri+";\tanim2DBpediaClzUri:"+anim2DBpediaClzUri);
+
                 /**
                  * 如果是类对类，则：
                  *      1. 在DBpedia库中创建此动画类；
@@ -108,8 +121,31 @@ public class OMHandler {
                         OWLNamedClass dbpediaClz = dbpediaOwlModel.getOWLNamedClass(anim2DBpediaClzUri);
 
                         //todo 将anim2DBpediaClzUri 的实例挂到两个类下边
-
-
+                        /**
+                         * 将DBpedia类下边的实例挂到dbpedia_schema类和等价动画类下边：
+                         *      1. 创建实例:先查找、后创建；
+                         *      2. 如果存在着直接设置其类型属性；
+                         *      3. 如果不存在则用dbpediaClz创建、然后设置类型属性为animClz类。
+                         */
+                        String entitiesStr="";
+                        if((entitiesStr=clzEntitiesMap.get((String)("<"+anim2DBpediaClzUri+">")))!=null){
+                            String entityArr[]= entitiesStr.substring(1,entitiesStr.length()-1).split(",");
+                            for (String entityStr:entityArr) {
+                                if(!entityStr.contains("http")){
+                                    continue;
+                                }
+                                OWLIndividual newIndividual;
+                                if((newIndividual=dbpediaOwlModel.getOWLIndividual(entityStr.substring(2,entityStr.length()-1)))==null){
+//                                    System.out.println("xcreate individual:\t"+entityStr.substring(2,entityStr.length()-1)+" for clz:\t"+animUri+":\t"+anim2DBpediaClzUri);
+                                    newIndividual=dbpediaClz.createOWLIndividual(entityStr.substring(2,entityStr.length()-1));
+                                    newIndividual.addRDFType(animClz);
+                                }else{
+                                    newIndividual.addRDFType(dbpediaClz);
+                                    newIndividual.addRDFType(animClz);
+//                                    System.out.println("ycreate individual:\t"+entityStr.substring(2,entityStr.length()-1)+" for clz:\t"+animUri+":\t"+anim2DBpediaClzUri);
+                                }
+                            }
+                        }
 //                        //获取动画类的子类
 //                        Collection<OWLNamedClass> animSubClassList = animOwlModel.getOWLNamedClass(animUri).getSubclasses(false);
 //                        //在DBpedia中创建动画类子类，并且指定动画类对应的DBpedia类为父类
@@ -166,9 +202,10 @@ public class OMHandler {
                     OWLIndividual newIndividual;
                     if((newIndividual=dbpediaOwlModel.getOWLIndividual(anim2DBpediaClzUri))==null){
                         dbpediaClz.createOWLIndividual(anim2DBpediaClzUri);
+                        System.out.println("create clz individual:"+anim2DBpediaClzUri);
                     }else{
                         newIndividual.addRDFType(dbpediaClz);
-                        System.out.println(anim2DBpediaClzUri+"重复");
+//                        System.out.println(anim2DBpediaClzUri+"重复");
                     }
                 }
             }
