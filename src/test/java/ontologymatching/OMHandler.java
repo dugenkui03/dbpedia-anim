@@ -127,25 +127,25 @@ public class OMHandler {
                          *      2. 如果存在着直接设置其类型属性；
                          *      3. 如果不存在则用dbpediaClz创建、然后设置类型属性为animClz类。
                          */
-                        String entitiesStr="";
-                        if((entitiesStr=clzEntitiesMap.get((String)("<"+anim2DBpediaClzUri+">")))!=null){
-                            String entityArr[]= entitiesStr.substring(1,entitiesStr.length()-1).split(",");
-                            for (String entityStr:entityArr) {
-                                if(!entityStr.contains("http")){
-                                    continue;
-                                }
-                                OWLIndividual newIndividual;
-                                if((newIndividual=dbpediaOwlModel.getOWLIndividual(entityStr.substring(2,entityStr.length()-1)))==null){
-//                                    System.out.println("xcreate individual:\t"+entityStr.substring(2,entityStr.length()-1)+" for clz:\t"+animUri+":\t"+anim2DBpediaClzUri);
-                                    newIndividual=dbpediaClz.createOWLIndividual(entityStr.substring(2,entityStr.length()-1));
-                                    newIndividual.addRDFType(animClz);
-                                }else{
-                                    newIndividual.addRDFType(dbpediaClz);
-                                    newIndividual.addRDFType(animClz);
-//                                    System.out.println("ycreate individual:\t"+entityStr.substring(2,entityStr.length()-1)+" for clz:\t"+animUri+":\t"+anim2DBpediaClzUri);
-                                }
-                            }
-                        }
+//                        String entitiesStr="";
+//                        if((entitiesStr=clzEntitiesMap.get((String)("<"+anim2DBpediaClzUri+">")))!=null){
+//                            String entityArr[]= entitiesStr.substring(1,entitiesStr.length()-1).split(",");
+//                            for (String entityStr:entityArr) {
+//                                if(!entityStr.contains("http")){
+//                                    continue;
+//                                }
+//                                OWLIndividual newIndividual;
+//                                if((newIndividual=dbpediaOwlModel.getOWLIndividual(entityStr.substring(2,entityStr.length()-1)))==null){
+////                                    System.out.println("xcreate individual:\t"+entityStr.substring(2,entityStr.length()-1)+" for clz:\t"+animUri+":\t"+anim2DBpediaClzUri);
+//                                    newIndividual=dbpediaClz.createOWLIndividual(entityStr.substring(2,entityStr.length()-1));
+//                                    newIndividual.addRDFType(animClz);
+//                                }else{
+//                                    newIndividual.addRDFType(dbpediaClz);
+//                                    newIndividual.addRDFType(animClz);
+////                                    System.out.println("ycreate individual:\t"+entityStr.substring(2,entityStr.length()-1)+" for clz:\t"+animUri+":\t"+anim2DBpediaClzUri);
+//                                }
+//                            }
+//                        }
 //                        //获取动画类的子类
 //                        Collection<OWLNamedClass> animSubClassList = animOwlModel.getOWLNamedClass(animUri).getSubclasses(false);
 //                        //在DBpedia中创建动画类子类，并且指定动画类对应的DBpedia类为父类

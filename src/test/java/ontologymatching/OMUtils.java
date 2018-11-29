@@ -116,6 +116,7 @@ public class OMUtils {
      * 将animModel对象中animClz类下的子孙类“平移”到dbpediaModel对象中的dbpediaClz类下，即dbpediaClz和animClz是等价类
      */
     public static void setDescClz(OWLModel dbpediaModel, OWLNamedClass dbpediaClz, OWLNamedClass animClz) {
+        OMHandler.subClzCount++;
         Collection<OWLNamedClass> animSubClzList = animClz.getSubclasses(false);
 
         for(OWLNamedClass subClz:animSubClzList){
@@ -134,6 +135,7 @@ public class OMUtils {
      * 将animModel对象中animClz类下的子孙类“平移”到dbpediaModel对象中的dbpediaClz类下，即dbpediaClz和animClz是等价类
      */
     public static void setDescClzX(OWLModel dbpediaModel, RDFSNamedClass dbpediaClz, OWLNamedClass animClz) {
+        OMHandler.subClzCount++;
         Collection<OWLNamedClass> animSubClzList = animClz.getSubclasses(false);
 
         for(OWLNamedClass subClz:animSubClzList){
