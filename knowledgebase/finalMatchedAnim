@@ -104,7 +104,7 @@ DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Cloud)
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Death);death;equal;<http://dbpedia.org/ontology/Death>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Plant);plant;equal;<http://dbpedia.org/ontology/Plant>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#shape);shape;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Condition>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Topic);
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Topic);topic
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Swing);swing;animClz2Entity;<http://dbpedia.org/resource/Swing>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Shirt);shirt;animClz2Entity;<http://dbpedia.org/resource/Shirt>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#twist);twist;animClz2Entity;<http://dbpedia.org/resource/Twist>
