@@ -58,8 +58,6 @@
     <xsd:complexType name="moduleType">
         <xsd:sequence>
             <xsd:element ref="name"/>
-            <xsd:element name="comment" type="xsd:string"  minOccurs="0"/>
-            <xsd:element ref="properties" minOccurs="0" maxOccurs="1"/>            
         </xsd:sequence>
     </xsd:complexType>
 

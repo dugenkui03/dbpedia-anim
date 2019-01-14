@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<result negType="不;" negCont="想;"><message value="不想去爬山"/><nemessage value=" 不想去爬山"/><segmessage value="不#ad 想#vb 去#vb 爬山#vb"/><topic name="爬山" key="爬山"><root name="动作" flag="" value="走:去" color=""/></topic><topic name="爬山" flag="1" probability="0.75"/><textType attribute="subjective"><sad attribute="0.17933630133906156"/></textType></result>
 
+<?xml version="1.0" encoding="gb2312"?>
 
-
-
- 
-
+<result negType="" negCont="">
+    <message value="海明威喜欢苜蓿"/>
+    <nemessage value="海明威,喜欢,苜蓿"/>
+    <segmessage value="海明威#np 喜欢#vb 苜蓿#nn"/>
+    <topic name="" key=""/>
+    <topic name="" flag="1" probability="0.0"/>
+    <textType attribute="objective"/>
+</result>

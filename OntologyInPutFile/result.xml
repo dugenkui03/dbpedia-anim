@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="gb2312"?>
 
 <result negType="" negCont="">
-  <message value="我赞成你的说法"/>
-  <nemessage value=" 我赞成你的说法"/>
-  <segmessage value="我#pn 赞成#vb 你#pn 的#ax 说法#nn"/>
-  <topic name="" key="">
-    <root name="人物" flag="" value="单数人物:第一人称单数:我|单数人物:第二人称单数:你" color="" negFlag="0" negCont="" neg=""/>
+  <message value="好好写论文吧，苜蓿就要开花了"/>
+  <nemessage value=""/>
+  <segmessage value="好好#ad 写#vb 论文#nn 吧#ax ，#wp 苜蓿#nn 就要#ad 开花#vb 了#ax"/>
+  <topic name="开花" key="开花">
+    <root name="动作" flag="" value="学习:写" color="" negFlag="0" negCont="" neg=""/>
   </topic>
-  <topic name="" flag="1" probability="0.0"/>
+  <topic name="开花" flag="1" probability="0.6007705"/>
   <textType attribute="objective"/>
 </result>

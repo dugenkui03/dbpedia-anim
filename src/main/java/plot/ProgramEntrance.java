@@ -43,7 +43,6 @@ public class ProgramEntrance {
             logger.info("开始读取IE文件");
             getXMLData("OntologyInPutFile\\result.xml");
             logger.info("结束读取IE文件");
-
             logger.info("============================开始定性主程序====================================================================================");
             JenaMethod.processMaFile(topicName, templateAttr, templateWithColor, colorMark, topicFromMG, // 带概率值
                     topicFromQiu, strNegType, count, TopicAndTemplate);

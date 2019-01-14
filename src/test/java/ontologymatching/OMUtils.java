@@ -109,7 +109,7 @@ public class OMUtils {
      * @param owlModel
      */
     public static void saveOwlModel2File(OWLModel owlModel) {
-        ((JenaOWLModel) owlModel).save(new File("c:/ontologyOWL/dbpediaschema/dbpedia_2014.owl").toURI(), FileUtils.langXMLAbbrev, new ArrayList());
+        ((JenaOWLModel) owlModel).save(new File("c:/ontologyOWL/dbpediarelationoutput/dbpedia_2014.owl").toURI(), FileUtils.langXMLAbbrev, new ArrayList());
     }
 
     /**
@@ -119,14 +119,20 @@ public class OMUtils {
         OMHandler.subClzCount++;
         Collection<OWLNamedClass> animSubClzList = animClz.getSubclasses(false);
 
+        /**
+         * 遍历动画类
+         */
         for(OWLNamedClass subClz:animSubClzList){
+            /**
+             * 获取需要平移的动画类
+             */
             OWLNamedClass newDBpediaClz;
             if((newDBpediaClz=dbpediaModel.getOWLNamedClass(subClz.getName()))==null){
                 newDBpediaClz=dbpediaModel.createOWLNamedClass(subClz.getName());
             }
+
             newDBpediaClz.addSuperclass(dbpediaClz);
             newDBpediaClz.removeSuperclass(dbpediaModel.getOWLNamedClass("owl:Thing"));
-
             setDescClz(dbpediaModel,newDBpediaClz,subClz);
         }
     }
