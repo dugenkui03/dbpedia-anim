@@ -109,7 +109,7 @@ public class OMHandler {
                      *      2. 如果存在着直接设置其类型属性；
                      *      3. 如果不存在则用dbpediaClz创建、然后设置类型属性为animClz类。
                      */
-                    TDBUtils.setInstance(animClz,matchedDBpediaUri);
+                    TDBUtils.setInstance(dbpediaOwlModel,animClz,matchedDBpediaUri);
 
                     OMUtils.setDescClz(dbpediaOwlModel, animClz,animOwlModel.getOWLNamedClass(animUri));//将关联的数据导入动画知识库后，子类关系直接有呀
 

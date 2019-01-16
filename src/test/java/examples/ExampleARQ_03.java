@@ -33,14 +33,14 @@ import org.apache.jena.util.FileManager;
 public class ExampleARQ_03 {
 
 	public static void main(String[] args) {
-        FileManager.get().addLocatorClassLoader(ExampleARQ_01.class.getClassLoader());
-        String apikey = System.getenv("KASABI_API_KEY");
+//        FileManager.get().addLocatorClassLoader(ExampleARQ_01.class.getClassLoader());
+//        String apikey = System.getenv("KASABI_API_KEY");
         
         String queryString = 
         		"select * where { ?a ?b ?region } limit 10";
         Query query = QueryFactory.create(queryString);
         QueryEngineHTTP qexec = (QueryEngineHTTP)QueryExecutionFactory.createServiceRequest("https://dbpedia.org/sparql", query);
-        qexec.addParam("apikey", apikey);
+//        qexec.addParam("apikey", apikey);
         try {
             ResultSet results = qexec.execSelect();
             while ( results.hasNext() ) {

@@ -6,6 +6,7 @@ import engine.Similarity;
 import invoke.RelationTerm;
 import invoke.invoker.KnowledgeBaseInvoker;
 import util.LookUpUtil;
+import util.NamedEntityIdentity;
 import util.StringUtil;
 import util.ZhToEng;
 
@@ -31,14 +32,16 @@ public class RelationFind {
         Set<String> wordsZh = StringUtil.getEle(message);
         System.out.println("短信中有用的分词:" + wordsZh);
         /**
-         * 获取分词集合相对应的英文集合
+         * 获取分词集合相对应的英文集合。实例：[梧桐;wutong, 全聚德;quanjude, 鲸鱼;whale, 海明威;Hemingway]
          */
         List<String> wordsEng = ZhToEng.zhsToEngs(new ArrayList<>(wordsZh));
         System.out.println("分词集合相对应的英文单词集合:" + wordsEng);
         /**
-         * 获取短信对应的term
+         * 获取短信对应的term: 1.使用label属性(中文原词找不到则用英文原词)；2.使用pageRank思想；3. lookup todo:命名实体识别那几个套路。
          */
-        List<String> terms = LookUpUtil.lookUp(wordsEng);
+
+        Map<String,String> terms=NamedEntityIdentity.findEntities(wordsEng);
+//        List<String> terms = LookUpUtil.lookUp(wordsEng); fixme：使用自己的程序查找词语相关的term
         System.out.println("短信对应的term：" + terms);
         /*==============================================================================================*/
         /**
@@ -63,7 +66,7 @@ public class RelationFind {
          */
         Map<String,Set<String>> termsTypeList = new HashMap<>();
         Map<String,List<Triple>> termsDesc = new HashMap<>();
-        for (String term : terms) {
+        for (String term : terms.values()) {
             //查询term的类型，然后获取其类型信息
             Set<String> termsType = new LinkedHashSet<>();
             List<Triple> classTrips = KnowledgeBaseInvoker.hltNet(Constants.QUERY_TERM_CLASS, term);
@@ -107,7 +110,7 @@ public class RelationFind {
          *       2.查找跟connnectedTerm类型相同的本地知识库的实体，找出最相似的实体
          * TODO：category 属性有很大的参考意义
          */
-        Set<String> connectedTerm = RelationTerm.findConnectedTermList(terms);
+        Set<String> connectedTerm = RelationTerm.findConnectedTermList(terms.values());
         Map<String,Set<String>> connectedTermsTypeList = new HashMap<>();
         Map<String,List<Triple>> connectedTermsDesc = new HashMap<>();
         for (String term : connectedTerm) {

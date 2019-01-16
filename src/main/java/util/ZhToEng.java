@@ -52,10 +52,10 @@ public class ZhToEng implements Callable<String> {
                     enWord = enWord.substring(1);
                 }
             }
-            return enWord;
+            return zhWrod+";"+enWord;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return zhWrod+";";
         }
     }
 
@@ -79,18 +79,12 @@ public class ZhToEng implements Callable<String> {
             }
         }
         httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
-        /**HttpResponse*/
         CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
         try {
             HttpEntity httpEntity = httpResponse.getEntity();
             String response = EntityUtils.toString(httpEntity, "utf-8");
             JsonNode entity = new ObjectMapper().readTree(response).get("translation").get(0);
             result = entity.getTextValue();
-
-            // fixme 如果需要参考web释义或者直接用其提换translation时，则添加如下代码
-//            JsonNode ent_web=new ObjectMapper().readTree(response).get("web").get(0).get("value").get(0);
-//            String webResult=ent_web.getTextValue();
-//            ...
 
             EntityUtils.consume(httpEntity);//内容流如果打开，则关闭
         } finally {
@@ -112,12 +106,10 @@ public class ZhToEng implements Callable<String> {
         if (content == null) {
             return null;
         }
-
         byte[] btInput = content.getBytes("utf-8");
         MessageDigest mdInst = MessageDigest.getInstance("MD5");
         mdInst.update(btInput);
         byte[] md = mdInst.digest();
-
 
         /** 把密文转换成十六进制的字符串形式 */
         char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};

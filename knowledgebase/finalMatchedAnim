@@ -177,7 +177,7 @@ DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Mar
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Cloud);cloud;wordNet_syno;<http://dbpedia.org/ontology/Swarm>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Number);number;thesuaru_syno;<http://dbpedia.org/ontology/Statistic>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Voting);voting;animClz2Entity;<http://dbpedia.org/resource/Voting>
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#banana);banana;thesuaru_syno;<http://dbpedia.org/ontology/Actor>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#banana);banana;animClz2Entity;<http://dbpedia.org/resource/Banana>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Fridge);fridge;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Ridge>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#rugged);rugged;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Broken>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Island);island;equal;<http://dbpedia.org/ontology/Island>

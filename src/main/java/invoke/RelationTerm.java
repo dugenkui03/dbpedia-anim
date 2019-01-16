@@ -58,7 +58,7 @@ public class RelationTerm {
     /**
      *  ¼ûfindConnectedTerms
      */
-    public static Set<String> findConnectedTermList(List<String> termsList){
+    public static Set<String> findConnectedTermList(Collection<String> termsList){
         Set<String> connectedTermList = new HashSet<>();
         for (String ele:termsList) {
             connectedTermList.addAll(findConnectedTerms(ele));
