@@ -25,6 +25,7 @@ import static cons.Constants.*;
  */
 @Data
 public class KnowledgeBaseInvoker {
+    //Invoker的本地知识库
     private String localDir;
     private String netAdd;
 
@@ -149,6 +150,7 @@ public class KnowledgeBaseInvoker {
 
         String queryString = qrySchema.replaceAll(Constants.QUERY_PARAM,param);
 
+        System.out.println("queryString:"+queryString);
         Query query = QueryFactory.create(queryString);
         QueryEngineHTTP qexec = QueryExecutionFactory.createServiceRequest("https://dbpedia.org/sparql", query);
         qexec.addParam("apikey", apikey);

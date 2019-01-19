@@ -9,6 +9,8 @@ public class RelationFindTest {
 
     @Test
     public void testRelFin() throws Exception {
-        RelationFind.relFin("海明威#nn 鲸鱼#nn 梧桐#nn 全聚德#nn");
+        long now=System.currentTimeMillis();
+        RelationFind.relFin("海明威#nn 鲸鱼#nn 苜蓿#nn 卷饼#nn");
+        System.out.println(System.currentTimeMillis()-now);
     }
 }

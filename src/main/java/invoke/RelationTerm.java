@@ -15,12 +15,12 @@ public class RelationTerm {
     /**
      * 调用 findConnectedTypeTerms 查找某个term关联的term的类型。fixme 一个term的类型可能有很多种的
      */
-    public static Set<String> findConnectedTypeTermList(List<String> termsList){
+    public static Set<String> findConnectedTypeTermList(List<String> termsList) {
         Set<String> typeOfConTerms = new HashSet<>();
         for (String ele : termsList) {
             typeOfConTerms.addAll(findConnectedTypeTerms(ele));
         }
-        typeOfConTerms.forEach(x-> System.out.println(x));
+        typeOfConTerms.forEach(x -> System.out.println(x));
         return typeOfConTerms;
     }
 
@@ -56,29 +56,41 @@ public class RelationTerm {
     }
 
     /**
-     *  见findConnectedTerms
+     * 见findConnectedTerms，返回数据结构含义为 Map<term，Set<与keyTerm关联的term>>
      */
-    public static Set<String> findConnectedTermList(Collection<String> termsList){
-        Set<String> connectedTermList = new HashSet<>();
-        for (String ele:termsList) {
+    public static Map<String, Set<String>> findConnectedTermList(Collection<String> termsList) {
+        Map<String, Set<String>> res = new HashMap<>();
+        for (String ele : termsList) {
+            Set<String> connectedTermList = new HashSet<>();
             connectedTermList.addAll(findConnectedTerms(ele));
+            res.put(ele, connectedTermList);
         }
-        return connectedTermList;
+        return res;
     }
 
     /**
      * 查找以term为头或尾节点的 尾头节点的 term集合
      */
-    public static Set<String> findConnectedTerms(String term){
-        Set<String> connectedTerm = new HashSet<>();
-        List<Triple> tailTripleList = KnowledgeBaseInvoker.hltNet(Constants.QUERY_HEAD,term);
-        for (Triple needTail:tailTripleList) {
-            connectedTerm.add((String)needTail.getT());
+    public static Set<String> findConnectedTerms(String term) {
+        /**
+         * 查找关联的实体使，每种类型只选出一个实体（apache-jena不支持group去重，因此使用Map），防止选出过多的实体，比如使用dbo:author关联的海明威相关的书籍实体只选出一个即可。
+         */
+        Map<String, String> disTypeKeyMap = new HashMap<>();
+        List<Triple> tailTripleList = KnowledgeBaseInvoker.hltNet(Constants.QUERY_HEAD, term);
+        for (Triple needTail : tailTripleList) {
+            String tmpTail = (String) needTail.getT();
+            if (tmpTail.contains("http://dbpedia.org/resource/") && !((String) needTail.getL()).contains("http://dbpedia.org/ontology/wikiPageWikiLink")) {
+                disTypeKeyMap.put((String)needTail.getL(),tmpTail);
+            }
         }
-        List<Triple> headTripleList = KnowledgeBaseInvoker.hltNet(Constants.QUERY_TAIL,term);
-        for (Triple needHead:headTripleList) {
-            connectedTerm.add((String)needHead.getH());
+        List<Triple> headTripleList = KnowledgeBaseInvoker.hltNet(Constants.QUERY_TAIL, term);
+        for (Triple needHead : headTripleList) {
+            String tmpHead = (String) needHead.getH();
+            if (tmpHead.contains("http://dbpedia.org/resource/") && !((String) needHead.getL()).contains("http://dbpedia.org/ontology/wikiPageWikiLink")) {
+                disTypeKeyMap.put((String)needHead.getL(),tmpHead);
+            }
         }
-        return connectedTerm;
+
+        return new HashSet<String>(disTypeKeyMap.values());
     }
 }

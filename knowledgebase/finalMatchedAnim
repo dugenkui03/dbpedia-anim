@@ -62,7 +62,7 @@ DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#Tops);
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Hill);hill;animClz2Entity;<http://dbpedia.org/resource/Hill>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1492410615.owl#mini);mini;animClz2Entity;<http://dbpedia.org/resource/Mini>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Tree);tree;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Corner>
-DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Book);book;equal;<http://dbpedia.org/ontology/Book>;thesuaru_syno;<http://dbpedia.org/ontology/Album>
+DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Book);book;equal;<http://dbpedia.org/ontology/Book>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Word);word;animClz2Entity;<http://dbpedia.org/resource/Word>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/MyCamera.owl#Down);down;animClz2Entity;<http://dbpedia.org/resource/Down>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Road);road;equal;<http://dbpedia.org/ontology/Road>;thesuaru_syno;<http://dbpedia.org/ontology/Artery>
@@ -980,7 +980,7 @@ DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#BusTem
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Remembering);remembering;animWordNetsynoClz2Entity;<http://dbpedia.org/resource/Remember>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#Corporation);corporation;animClz2Entity;<http://dbpedia.org/resource/Corporation>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1291624979.owl#ColorSeason);colorseason
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#EatingScene);eating;animClz2Entity;<http://dbpedia.org/resource/Eating>
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#EatingScene);eating;thesuaru_syno;<http://dbpedia.org/ontology/Restaurant>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#apple_shape);appleshape
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#CheckAction);checkaction
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#RegretScene);regret;animClz2Entity;<http://dbpedia.org/resource/Regret>
@@ -1844,7 +1844,7 @@ DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Snowca
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#Self_faultTemplate);selffault
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#CityNightMaRelated);citynight;thesuaru_syno;<http://dbpedia.org/ontology/City>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1496659417.owl#PlayBaseballAction);playbaseballaction
-DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#StudyThingTemplate);studything
+DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#StudyThingTemplate);studything;thesuaru_syno;<http://dbpedia.org/ontology/Book>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1306459186.owl#cap_cartoon_lively);capcartoonlively;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Capital>
 DefaultOWLNamedClass(http://www.ontologyportal.org/translations/SUMO.owl.txt#UnitedStatesDollar);unitedstatesdollar;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/United>
 DefaultOWLNamedClass(http://www.owl-ontologies.com/Ontology1290308675.owl#DanceGirlMaRelated);dancegirl;animThesuaruSynoClz2Entity;<http://dbpedia.org/resource/Dance>
